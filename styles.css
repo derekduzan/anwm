@@ -148,35 +148,58 @@ section h2::after {
 
 /* Chairman Message Section */
 .chairman-message {
-    background-color: var(--white);
+    background-color: var(--gray-light);
+    padding: 6rem 0;
 }
 
 .message-content {
     display: flex;
-    gap: 3rem;
+    gap: 4rem;
     align-items: center;
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .chairman-photo {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
     border-radius: 50%;
-    border: 3px solid var(--purple);
+    border: 4px solid var(--purple);
+    box-shadow: 0 4px 15px rgba(75, 0, 130, 0.2);
+    flex-shrink: 0;
 }
 
 blockquote {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     line-height: 1.8;
-    color: #444;
+    color: #333;
     font-style: italic;
+    position: relative;
+    padding-left: 2rem;
+}
+
+blockquote::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--purple);
+    position: absolute;
+    left: -1rem;
+    top: -1rem;
+    opacity: 0.2;
 }
 
 blockquote footer {
-    margin-top: 1rem;
-    font-weight: bold;
+    margin-top: 1.5rem;
+    font-weight: 600;
     color: var(--purple);
     font-style: normal;
+    font-size: 1.1rem;
+    text-align: right;
+    background: none;
+    padding: 0;
 }
 
 /* Board Section */
@@ -197,6 +220,8 @@ blockquote footer {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .board-member:hover {
@@ -214,6 +239,21 @@ blockquote footer {
 .board-member h3 {
     color: var(--purple);
     margin-bottom: 0.5rem;
+}
+
+.board-member .member-overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background: rgba(75, 0, 130, 0.9);
+    color: white;
+    padding: 2rem;
+    transition: bottom 0.3s ease-in-out;
+}
+
+.board-member:hover .member-overlay {
+    bottom: 0;
 }
 
 /* Gallery Section */
@@ -261,6 +301,7 @@ blockquote footer {
     height: 100%;
     flex-shrink: 0;
     background-color: black;
+    cursor: pointer;
 }
 
 .carousel-slide img {
@@ -531,6 +572,9 @@ blockquote footer {
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 70px;
     transition: transform 0.3s ease;
 }
 
@@ -541,27 +585,23 @@ blockquote footer {
 .event-date {
     background: var(--purple);
     color: var(--white);
-    padding: 1.5rem;
+    padding: 1rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    min-width: 120px;
+    gap: 0.5rem;
 }
 
-.event-date .month {
+.event-date .month,
+.event-date .day,
+.event-date .year {
     font-size: 1.2rem;
     font-weight: 700;
+    margin: 0;
 }
 
 .event-date .day {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1;
-    margin: 0.5rem 0;
-}
-
-.event-date .year {
     font-size: 1.2rem;
 }
 
@@ -594,17 +634,13 @@ blockquote footer {
     }
 
     .event-date {
-        padding: 1rem;
-        flex-direction: row;
-        gap: 0.5rem;
-        justify-content: center;
+        padding: 0.8rem;
     }
 
     .event-date .month,
     .event-date .day,
     .event-date .year {
         font-size: 1.1rem;
-        margin: 0;
     }
 } 
 
@@ -672,4 +708,112 @@ blockquote footer {
     .contact-form {
         padding: 1.5rem;
     }
+} 
+
+.event-actions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    background: var(--white);
+    border-top: 1px solid var(--gray-light);
+}
+
+.rsvp-btn {
+    padding: 0.6rem 2rem;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: var(--purple);
+    color: white;
+    box-shadow: 0 2px 4px rgba(75, 0, 130, 0.2);
+    width: auto;
+    min-width: 200px;
+}
+
+.rsvp-btn:hover {
+    background-color: var(--purple-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(75, 0, 130, 0.3);
+}
+
+/* Add loading animations for sections */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-animate {
+    opacity: 0;
+}
+
+.section-animate.visible {
+    animation: fadeInUp 0.6s ease forwards;
+} 
+
+.carousel-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.carousel-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+} 
+
+.membership-note {
+    background-color: var(--gray-light);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+} 
+
+.membership-info {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--gray-light);
+}
+
+.membership-info p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.membership-info a {
+    color: var(--purple);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.membership-info a:hover {
+    color: var(--purple-light);
+    text-decoration: underline;
 } 

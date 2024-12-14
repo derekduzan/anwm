@@ -21,7 +21,7 @@
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#events">Events</a>
-                <a href="#membership">Membership</a>
+                <a href="#membership">Our Board</a>
                 <a href="#contact">Contact</a>
             </div>
             <div class="menu-toggle">
@@ -146,27 +146,41 @@
                     <div class="event-card">
                         <div class="event-date">
                             <span class="month">DEC</span>
-                            <span class="day">15</span>
-                            <span class="year">2023</span>
+                            <span class="day">20</span>
+                            <span class="year">2024</span>
                         </div>
                         <div class="event-details">
                             <h3>Holiday Gathering</h3>
                             <p class="event-time"><i class="far fa-clock"></i> 6:00 PM - 9:00 PM</p>
                             <p class="event-location"><i class="fas fa-map-marker-alt"></i> Grand Rapids, MI</p>
-                            <p class="event-description">Join us for our annual holiday celebration with brothers and their families. Evening includes dinner, gift exchange, and special recognition ceremony.</p>
+                            <p class="event-description">Join us for a holiday celebration with brothers and their families. Evening includes dinner, gift exchange, and special recognition ceremony.</p>
+                        </div>
+                        <div class="event-actions">
+                            <button class="rsvp-btn" onclick="handleRSVP(this)" 
+                                data-event-name="Holiday Gathering" 
+                                data-event-date="2023-12-20" 
+                                data-event-time="18:00" 
+                                data-event-location="Grand Rapids, MI">RSVP Now</button>
                         </div>
                     </div>
                     <div class="event-card">
                         <div class="event-date">
-                            <span class="month">JAN</span>
-                            <span class="day">20</span>
-                            <span class="year">2024</span>
+                            <span class="month">MAY</span>
+                            <span class="day">10</span>
+                            <span class="year">2025</span>
                         </div>
                         <div class="event-details">
-                            <h3>10th Anniversary Gala</h3>
+                            <h3>11th Anniversary Gala</h3>
                             <p class="event-time"><i class="far fa-clock"></i> 7:00 PM - 11:00 PM</p>
-                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> JW Marriott, Grand Rapids</p>
-                            <p class="event-description">Celebrate a decade of brotherhood and excellence as we commemorate our chapter's 10th anniversary. Black-tie event featuring dinner, awards, and special guest speakers.</p>
+                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> Grand Rapids, MI</p>
+                            <p class="event-description">Celebrate eleven years of brotherhood and excellence as we commemorate the Alumni Network of West Michigan's 11th anniversary. Black-tie event featuring dinner, awards, and special guest speakers.</p>
+                        </div>
+                        <div class="event-actions">
+                            <button class="rsvp-btn" onclick="handleRSVP(this)"
+                                data-event-name="11th Anniversary Gala"
+                                data-event-date="2025-05-10"
+                                data-event-time="19:00"
+                                data-event-location="Grand Rapids, MI">RSVP Now</button>
                         </div>
                     </div>
                 </div>
@@ -182,8 +196,11 @@
                     </div>
                     <div class="about-main">
                         <div class="about-text">
-                            <p>The West Michigan Alumni Network of Sigma Lambda Beta International Fraternity, Inc. was established in 2014 to unite and serve our brotherhood in the West Michigan region. As proud members of a Latino-based fraternity founded in 1986, we continue to uphold our principles of Brotherhood, Scholarship, Community Service, and Cultural Awareness.</p>
-                            <p>Our network serves as a bridge between collegiate members and alumni, fostering professional development, mentorship, and lifelong connections. Through various events and initiatives, we maintain our commitment to excellence and our cultural heritage while supporting the next generation of leaders.</p>
+                            <p>The ΣΛΒ Alumni Network of West Michigan was established in 2014 with the purpose of uniting and supporting our community of brothers.</p>
+                            <div class="membership-info">
+                                <p>To inquire about membership, please request more information from a member of our board in person.</p>
+                                <p>To learn more about our fraternity, visit <a href="https://sigmalambdabeta.com" target="_blank" rel="noopener noreferrer">sigmalambdabeta.com</a>.</p>
+                            </div>
                         </div>
                         <div class="about-stats">
                             <div class="stat-item">
@@ -191,12 +208,12 @@
                                 <span class="stat-label">Years of Service</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-number">100+</span>
-                                <span class="stat-label">Active Alumni</span>
+                                <span class="stat-number">5+</span>
+                                <span class="stat-label">Colleges/Universities Represented</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-number">20+</span>
-                                <span class="stat-label">Annual Events</span>
+                                <span class="stat-number">$0/$1,986</span>
+                                <span class="stat-label">Raised Toward 2025 Goal</span>
                             </div>
                         </div>
                     </div>
@@ -247,9 +264,9 @@
 
         <section class="contact" id="contact">
             <div class="container">
-                <h2>Contact Us</h2>
+                <h2>Member Contact</h2>
                 <div class="contact-content">
-                    <form class="contact-form">
+                    <form class="contact-form" id="contactForm" onsubmit="sendEmail(event)">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>

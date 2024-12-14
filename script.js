@@ -1,3 +1,56 @@
+// Move this function outside of DOMContentLoaded
+function sendEmail(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    
+    const mailtoLink = `mailto:derekduzan@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+    )}`;
+    
+    window.location.href = mailtoLink;
+}
+
+function handleRSVP(button) {
+    const eventName = button.dataset.eventName;
+    const eventDate = button.dataset.eventDate;
+    const eventTime = button.dataset.eventTime;
+    const eventLocation = button.dataset.eventLocation;
+    
+    const subject = `RSVP for ${eventName}`;
+    const body = `I would like to RSVP for the following event:%0D%0A%0D%0A` +
+        `Event: ${eventName}%0D%0A` +
+        `Date: ${eventDate}%0D%0A` +
+        `Time: ${eventTime}%0D%0A` +
+        `Location: ${eventLocation}%0D%0A%0D%0A` +
+        `Name: %0D%0A` +
+        `Number of Guests: `;
+    
+    window.location.href = `mailto:derekduzan@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+}
+
+function addToCalendar(button) {
+    const event = {
+        title: button.dataset.eventName,
+        start: new Date(button.dataset.eventDate),
+        end: new Date(button.dataset.eventEnd),
+        location: button.dataset.eventLocation,
+        description: button.dataset.eventDescription
+    };
+
+    // Create Google Calendar URL
+    const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${formatDateForGoogle(event.start)}/${formatDateForGoogle(event.end)}&details=${encodeURIComponent(event.description)}&location=${encodeURIComponent(event.location)}`;
+    
+    window.open(googleUrl, '_blank');
+}
+
+function formatDateForGoogle(date) {
+    return date.toISOString().replace(/-|:|\.\d\d\d/g, '');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -97,4 +150,103 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add current-slide class to first slide
     slides[0].classList.add('current-slide');
+
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const submitButton = this.querySelector('.submit-btn');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                if (data.includes('Thank You')) {
+                    contactForm.reset();
+                }
+            })
+            .catch(error => {
+                alert('Error sending message. Please try again.');
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
+            });
+        });
+    }
+
+    function animateNumbers() {
+        const stats = document.querySelectorAll('.stat-number');
+        
+        stats.forEach(stat => {
+            const target = parseInt(stat.textContent);
+            let current = 0;
+            const increment = target / 50; // Adjust for animation speed
+            
+            const updateNumber = () => {
+                if (current < target) {
+                    current += increment;
+                    stat.textContent = Math.ceil(current);
+                    requestAnimationFrame(updateNumber);
+                } else {
+                    stat.textContent = target;
+                }
+            };
+            
+            updateNumber();
+        });
+    }
+
+    // Use Intersection Observer to trigger animation when visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateNumbers();
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+
+    document.querySelector('.about-stats').forEach(stat => {
+        observer.observe(stat);
+    });
+
+    // Add smooth scrolling to all navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Add intersection observer for section animations
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.add('section-animate');
+        sectionObserver.observe(section);
+    });
 }); 
