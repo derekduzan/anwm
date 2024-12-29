@@ -91,6 +91,70 @@ body {
     text-align: center;
     padding: 0 1rem;
     background: linear-gradient(135deg, var(--white) 0%, var(--gray-light) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(90deg, 
+            transparent 0px,
+            transparent 39px,
+            var(--purple) 40px,
+            var(--purple) 41px
+        ),
+        repeating-linear-gradient(0deg,
+            transparent 0px,
+            transparent 39px,
+            var(--purple) 40px,
+            var(--purple) 41px
+        );
+    opacity: 0.05;
+    animation: gridMove 20s linear infinite;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(45deg,
+            transparent 0px,
+            transparent 39px,
+            var(--purple) 40px,
+            var(--purple) 41px
+        ),
+        repeating-linear-gradient(-45deg,
+            transparent 0px,
+            transparent 39px,
+            var(--purple) 40px,
+            var(--purple) 41px
+        );
+    opacity: 0.05;
+    animation: gridMove 15s linear infinite reverse;
+}
+
+@keyframes gridMove {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        transform: translateX(40px) translateY(40px);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
 }
 
 .hero h1 {
@@ -193,13 +257,24 @@ blockquote::before {
 
 blockquote footer {
     margin-top: 1.5rem;
-    font-weight: 600;
     color: var(--purple);
     font-style: normal;
     font-size: 1.1rem;
     text-align: right;
     background: none;
     padding: 0;
+}
+
+blockquote footer strong {
+    font-weight: 600;
+}
+
+blockquote p {
+    margin-bottom: 1.5rem;
+}
+
+blockquote p:last-of-type {
+    margin-bottom: 2rem;
 }
 
 /* Board Section */
@@ -308,6 +383,7 @@ blockquote footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 30%;
 }
 
 .carousel-caption {
@@ -557,6 +633,15 @@ blockquote footer {
 .upcoming-events {
     background-color: var(--gray-light);
     padding: 5rem 0;
+}
+
+.upcoming-events::before {
+    display: none;
+}
+
+.upcoming-events .container {
+    position: relative;
+    z-index: 1;
 }
 
 .events-grid {
@@ -816,4 +901,65 @@ blockquote footer {
 .membership-info a:hover {
     color: var(--purple-light);
     text-decoration: underline;
+} 
+
+.hero-content {
+    position: relative;
+    transition: transform 0.2s ease-out;
+} 
+
+.hero-logo {
+    width: 300px;
+    height: auto;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.hero-logo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(255, 255, 255, 0.8) 50%,
+        transparent 100%
+    );
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.hero-logo:hover::after {
+    opacity: 1;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-logo {
+        width: 200px;
+        margin-bottom: 2rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+} 
+
+/* Custom positioning for specific images if needed */
+.carousel-slide img[src*="meeting2.jpg"] {
+    object-position: center 20%;
+}
+
+.carousel-slide img[src*="meeting3.jpg"] {
+    object-position: center 25%;
 } 

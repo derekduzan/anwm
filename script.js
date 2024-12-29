@@ -249,4 +249,22 @@ document.addEventListener('DOMContentLoaded', () => {
         section.classList.add('section-animate');
         sectionObserver.observe(section);
     });
+
+    // Hero section mouse movement effect
+    const hero = document.querySelector('.hero');
+    const heroContent = document.querySelector('.hero-content');
+
+    document.addEventListener('mousemove', (e) => {
+        const mouseX = e.clientX;
+        const windowCenter = window.innerWidth / 2;
+        const offset = (mouseX - windowCenter) / 50;  // Smaller number = more subtle movement
+        
+        if (heroContent) {
+            heroContent.style.transform = `translateX(${offset}px)`;
+        }
+    });
+
+    hero.addEventListener('mouseleave', () => {
+        heroContent.style.transform = 'rotateY(0deg)';
+    });
 }); 

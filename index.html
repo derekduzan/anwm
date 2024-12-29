@@ -34,12 +34,20 @@
 
     <main>
         <section class="hero">
-            <h1>
-                <span class="greek-letters">ΣΛΒ</span>
-                <span class="separator">|</span>
-                <span class="network-name">Alumni Network of West Michigan</span>
-            </h1>
-            <p class="subtitle">Established 2014</p>
+            <div class="hero-content">
+                <img 
+                    src="images/logo.png" 
+                    alt="ΣΛΒ Alumni Network of West Michigan Logo" 
+                    class="hero-logo"
+                    onload="console.log('Image loaded successfully')"
+                    onerror="console.log('Error loading image. Path attempted:', this.src)">
+                <h1>
+                    <span class="greek-letters">ΣΛΒ</span>
+                    <span class="separator">|</span>
+                    <span class="network-name">Alumni Network of West Michigan</span>
+                </h1>
+                <p class="subtitle">Established 2014</p>
+            </div>
         </section>
 
         <section class="gallery" id="events">
@@ -49,88 +57,103 @@
                         <div class="carousel-track">
                             <!-- Original slides -->
                             <div class="carousel-slide">
-                                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80" alt="Networking Event">
+                                <img src="images/about.png" alt="Alumni Network Meeting">
                                 <div class="carousel-caption">
-                                    <h4>Professional Networking</h4>
-                                    <p>Building connections in West Michigan</p>
+                                    <h4>Alumni Network Meeting</h4>
+                                    <p>Celebrating our achievements</p>
                                 </div>
                             </div>
                             <div class="carousel-slide">
-                                <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80" alt="Alumni Mixer">
+                                <img src="images/meeting3.jpg" alt="Volunteering">
                                 <div class="carousel-caption">
-                                    <h4>Alumni Mixer</h4>
-                                    <p>Strengthening brotherhood bonds</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&q=80" alt="Leadership Conference">
-                                <div class="carousel-caption">
-                                    <h4>Leadership Conference</h4>
-                                    <p>Developing tomorrow's leaders</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80" alt="Business Meeting">
-                                <div class="carousel-caption">
-                                    <h4>Professional Development</h4>
-                                    <p>Growing together professionally</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80" alt="Mentorship Event">
-                                <div class="carousel-caption">
-                                    <h4>Mentorship Program</h4>
+                                    <h4>Volunteering</h4>
                                     <p>Supporting the next generation</p>
                                 </div>
                             </div>
                             <div class="carousel-slide">
-                                <img src="https://images.unsplash.com/photo-1560439514-4e9645039924?auto=format&fit=crop&q=80" alt="Alumni Dinner">
+                                <img src="images/volunteer1.png" alt="Volunteering with Laker Familia">
                                 <div class="carousel-caption">
-                                    <h4>Alumni Dinner</h4>
-                                    <p>Celebrating our achievements</p>
-                                </div>
-                            </div>
-                            <!-- Duplicate slides for seamless loop -->
-                            <div class="carousel-slide">
-                                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80" alt="Networking Event">
-                                <div class="carousel-caption">
-                                    <h4>Professional Networking</h4>
-                                    <p>Building connections in West Michigan</p>
+                                    <h4>Community Service</h4>
+                                    <p>Volunteering with Laker Familia at GVSU</p>
                                 </div>
                             </div>
                             <div class="carousel-slide">
-                                <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80" alt="Alumni Mixer">
+                                <img src="images/holidayparty.png" alt="Holiday Party">
                                 <div class="carousel-caption">
-                                    <h4>Alumni Mixer</h4>
-                                    <p>Strengthening brotherhood bonds</p>
+                                    <h4>Holiday Gathering</h4>
+                                    <p>Brothers celebrating the season together in Grand Rapids</p>
                                 </div>
                             </div>
                             <div class="carousel-slide">
-                                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&q=80" alt="Leadership Conference">
+                                <img src="images/meeting2.jpg" alt="Brother Social">
                                 <div class="carousel-caption">
-                                    <h4>Leadership Conference</h4>
-                                    <p>Developing tomorrow's leaders</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80" alt="Business Meeting">
-                                <div class="carousel-caption">
-                                    <h4>Professional Development</h4>
+                                    <h4>Brother Social</h4>
                                     <p>Growing together professionally</p>
                                 </div>
                             </div>
+                            <!-- Original slide -->
                             <div class="carousel-slide">
-                                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80" alt="Mentorship Event">
+                                <img src="images/fundraise1.png" alt="Fundraiser for Clubhouse International">
                                 <div class="carousel-caption">
-                                    <h4>Mentorship Program</h4>
+                                    <h4>Philanthropy</h4>
+                                    <p>Fundraising event supporting Clubhouse International</p>
+                                </div>
+                            </div>
+                            <!-- Duplicate all slides for seamless loop -->
+                            <div class="carousel-slide">
+                                <img src="images/about.png" alt="Alumni Network Meeting">
+                                <div class="carousel-caption">
+                                    <h4>Alumni Network Meeting</h4>
+                                    <p>Celebrating our achievements</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/meeting3.jpg" alt="Volunteering">
+                                <div class="carousel-caption">
+                                    <h4>Volunteering</h4>
                                     <p>Supporting the next generation</p>
                                 </div>
                             </div>
                             <div class="carousel-slide">
-                                <img src="https://images.unsplash.com/photo-1560439514-4e9645039924?auto=format&fit=crop&q=80" alt="Alumni Dinner">
+                                <img src="images/volunteer2.jpg" alt="Volunteering Event">
                                 <div class="carousel-caption">
-                                    <h4>Alumni Dinner</h4>
+                                    <h4>Community Outreach</h4>
+                                    <p>Brothers giving back to West Michigan</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/holidayparty.png" alt="Holiday Party">
+                                <div class="carousel-caption">
+                                    <h4>Holiday Gathering</h4>
+                                    <p>Brothers celebrating the season together in Grand Rapids</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/meeting2.jpg" alt="Brother Social">
+                                <div class="carousel-caption">
+                                    <h4>Brother Social</h4>
+                                    <p>Growing together professionally</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/meeting3.jpg" alt="Volunteering">
+                                <div class="carousel-caption">
+                                    <h4>Volunteering</h4>
+                                    <p>Supporting the next generation</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/about.png" alt="Alumni Network Meeting">
+                                <div class="carousel-caption">
+                                    <h4>Alumni Network Meeting</h4>
                                     <p>Celebrating our achievements</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/fundraise1.png" alt="Fundraiser for Clubhouse International">
+                                <div class="carousel-caption">
+                                    <h4>Philanthropy</h4>
+                                    <p>Fundraising event supporting Clubhouse International</p>
                                 </div>
                             </div>
                         </div>
@@ -145,21 +168,21 @@
                 <div class="events-grid">
                     <div class="event-card">
                         <div class="event-date">
-                            <span class="month">DEC</span>
-                            <span class="day">20</span>
-                            <span class="year">2024</span>
+                            <span class="month">JAN</span>
+                            <span class="day">31</span>
+                            <span class="year">2025</span>
                         </div>
                         <div class="event-details">
-                            <h3>Holiday Gathering</h3>
-                            <p class="event-time"><i class="far fa-clock"></i> 6:00 PM - 9:00 PM</p>
+                            <h3>Winter Social Mixer</h3>
+                            <p class="event-time"><i class="far fa-clock"></i> 7:00 PM - 9:00 PM</p>
                             <p class="event-location"><i class="fas fa-map-marker-alt"></i> Grand Rapids, MI</p>
-                            <p class="event-description">Join us for a holiday celebration with brothers and their families. Evening includes dinner, gift exchange, and special recognition ceremony.</p>
+                            <p class="event-description">Join us for an evening of networking and brotherhood as we kick off the new year. Light refreshments will be served.</p>
                         </div>
                         <div class="event-actions">
                             <button class="rsvp-btn" onclick="handleRSVP(this)" 
-                                data-event-name="Holiday Gathering" 
-                                data-event-date="2023-12-20" 
-                                data-event-time="18:00" 
+                                data-event-name="Winter Social Mixer" 
+                                data-event-date="2025-01-31" 
+                                data-event-time="19:00" 
                                 data-event-location="Grand Rapids, MI">RSVP Now</button>
                         </div>
                     </div>
@@ -173,7 +196,7 @@
                             <h3>11th Anniversary Gala</h3>
                             <p class="event-time"><i class="far fa-clock"></i> 7:00 PM - 11:00 PM</p>
                             <p class="event-location"><i class="fas fa-map-marker-alt"></i> Grand Rapids, MI</p>
-                            <p class="event-description">Celebrate eleven years of brotherhood and excellence as we commemorate the Alumni Network of West Michigan's 11th anniversary. Black-tie event featuring dinner, awards, and special guest speakers.</p>
+                            <p class="event-description">Celebrate eleven years of brotherhood and excellence as we commemorate the Alumni Network of West Michigan's 11th anniversary. Black-tie event featuring dinner, awards, and special guest speakers. Join us for this special Saturday evening.</p>
                         </div>
                         <div class="event-actions">
                             <button class="rsvp-btn" onclick="handleRSVP(this)"
@@ -192,7 +215,7 @@
                 <h2>About Us</h2>
                 <div class="about-content">
                     <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80" alt="Brotherhood Community Service">
+                        <img src="images/about2.png" alt="Brotherhood Community Service">
                     </div>
                     <div class="about-main">
                         <div class="about-text">
@@ -226,24 +249,24 @@
                 <h2>Board of Directors</h2>
                 <div class="board-grid">
                     <div class="board-member">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80" alt="Alpha">
-                        <h3>Alpha</h3>
+                        <img src="images/chairman.jpg" alt="Chairman">
+                        <h3>Derek Duzan</h3>
                         <p>Chairman</p>
                     </div>
                     <div class="board-member">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80" alt="Beta">
-                        <h3>Beta</h3>
+                        <img src="images/vicechairman.png" alt="Vice Chairman">
+                        <h3>Santiago Gayton</h3>
                         <p>Vice Chairman</p>
                     </div>
                     <div class="board-member">
-                        <img src="https://images.unsplash.com/photo-1618835962148-cf177563c6c0?auto=format&fit=crop&q=80" alt="Gamma">
-                        <h3>Gamma</h3>
-                        <p>Treasurer</p>
+                        <img src="images/secretary.png" alt="Secretary">
+                        <h3>Adnoris Torres</h3>
+                        <p>Secretary</p>
                     </div>
                     <div class="board-member">
-                        <img src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?auto=format&fit=crop&q=80" alt="Delta">
-                        <h3>Delta</h3>
-                        <p>Secretary</p>
+                        <img src="images/treasurer.png" alt="Treasurer">
+                        <h3>Emilio Zamarripa</h3>
+                        <p>Treasurer</p>
                     </div>
                 </div>
             </div>
@@ -253,10 +276,15 @@
             <div class="container">
                 <h2>Message from the Chairman</h2>
                 <div class="message-content">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80" alt="Alpha" class="chairman-photo">
+                    <img src="images/chairman.jpg" alt="Chairman" class="chairman-photo">
                     <blockquote>
-                        <p>"As Chairman of the ΣΛΒ Alumni Network of West Michigan, I am proud to lead an organization that continues to foster brotherhood, scholarship, and cultural awareness in our community. Since 2014, we have been building bridges between our alumni and creating opportunities for the next generation of leaders."</p>
-                        <footer>- Alpha, Chairman</footer>
+                        <p>"As Chairman of the Alumni Network of West Michigan for ΣΛΒ, I am proud to lead an organization with members that have served our community since the network's founding in 2014.</p>
+                        <p>By building bridges between alumni and creating opportunities for the next generation of leaders, we look forward to continuing this legacy, fostering a strong brotherhood, and cultivating the bonds necessary to uplift the values of scholarship, service, and cultural awareness."</p>
+                        <footer>
+                            <strong>Derek 'Visionario' Duzan</strong><br>
+                            Alpha Gamma Chapter<br>
+                            Grand Valley State University
+                        </footer>
                     </blockquote>
                 </div>
             </div>
