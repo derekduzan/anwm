@@ -1019,3 +1019,44 @@ blockquote p:last-of-type {
 html {
     scroll-behavior: smooth;
 } 
+
+/* Add these styles for landscape orientation */
+@media (max-height: 500px) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 80px 1rem 1rem;
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    /* Option 1: Hide the logo completely */
+    .hero-logo {
+        display: none;
+    }
+
+    /* OR Option 2: Make it very small */
+    /*.hero-logo {
+        width: 100px;
+        margin-bottom: 0.5rem;
+    }*/
+
+    .hero h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero .greek-letters {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+} 
