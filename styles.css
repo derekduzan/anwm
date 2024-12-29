@@ -540,6 +540,7 @@ blockquote p:last-of-type {
 
 .about-image {
     flex: 0 0 45%;
+    position: relative;
 }
 
 .about-image img {
@@ -547,6 +548,26 @@ blockquote p:last-of-type {
     height: 500px;
     object-fit: cover;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    filter: sepia(20%) contrast(1.1) brightness(0.95);
+    border: 8px solid var(--white);
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(75, 0, 130, 0.1);
+    position: relative;
+}
+
+.about-image::after {
+    content: 'First Meeting (2014)';
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    background: var(--purple);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
 }
 
 .about-main {
@@ -962,4 +983,39 @@ blockquote p:last-of-type {
 
 .carousel-slide img[src*="meeting3.jpg"] {
     object-position: center 25%;
+} 
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--purple);
+    color: var(--white);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--purple-light);
+    transform: translateY(-3px);
+}
+
+/* Add this to ensure smooth scrolling */
+html {
+    scroll-behavior: smooth;
 } 
