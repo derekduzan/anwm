@@ -930,9 +930,10 @@ blockquote p:last-of-type {
 } 
 
 .hero-logo {
-    width: 300px;
+    width: min(300px, 30vw);
+    min-width: 150px;
     height: auto;
-    margin-bottom: 3rem;
+    margin-bottom: clamp(1rem, 3vw, 3rem);
     position: relative;
 }
 
@@ -967,8 +968,8 @@ blockquote p:last-of-type {
 
 @media (max-width: 768px) {
     .hero-logo {
-        width: 200px;
-        margin-bottom: 2rem;
+        width: min(200px, 40vw);
+        min-width: 120px;
     }
     
     .hero h1 {
