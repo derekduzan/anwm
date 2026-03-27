@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alumni Network of Grand Rapids</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: Inter, Arial, sans-serif;
+      color: #ffffff;
+      background: linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.42)), url('assets/background.jpg') center/cover no-repeat, linear-gradient(135deg, rgba(17, 24, 39, 0.92), rgba(65, 70, 82, 0.72));
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      position: relative;
+      overflow-x: hidden;
+    }
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border-radius: 999px;
+      filter: blur(40px);
+      pointer-events: none;
+      opacity: .18;
+    }
+    body::before {
+      width: 260px;
+      height: 260px;
+      background: #160a47;
+      top: -40px;
+      left: -20px;
+    }
+    body::after {
+      width: 300px;
+      height: 300px;
+      background: #585d68;
+      right: -60px;
+      bottom: -40px;
+    }
+    .page {
+      width: 100%;
+      max-width: 430px;
+      padding: 32px 24px;
+      border-radius: 32px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+      box-shadow: 0 28px 70px rgba(0,0,0,.24);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(255,255,255,0.10);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .logo {
+      width: 108px;
+      height: 108px;
+      margin: 0 auto 18px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,.22);
+      box-shadow: 0 16px 36px rgba(0,0,0,.22);
+      background: rgba(255,255,255,.12);
+    }
+    .logo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 2rem;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+    }
+    p {
+      margin: 0 auto 24px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      color: rgba(255,255,255,.9);
+      max-width: 28ch;
+    }
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 0 0 20px;
+    }
+    .social-link {
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #ffffff;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 24px rgba(0,0,0,.12);
+      transition: transform .18s ease, opacity .18s ease, box-shadow .18s ease;
+    }
+    .social-link:hover {
+      transform: translateY(-2px);
+      opacity: .95;
+      box-shadow: 0 16px 30px rgba(0,0,0,.16);
+    }
+    .social-link svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+    .links {
+      display: grid;
+      gap: 14px;
+    }
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60px;
+      padding: 14px 18px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      border-radius: 12px;
+      background: #160a47;
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 14px 24px rgba(0,0,0,.16);
+      transition: transform .22s ease, box-shadow .22s ease, opacity .22s ease, border-color .22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .link-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255,255,255,0.14), transparent 35%, transparent 65%, rgba(255,255,255,0.12));
+      opacity: .55;
+      pointer-events: none;
+    }
+    .label-stack {
+      display: block;
+      line-height: 1.1;
+      transition: transform .24s ease;
+      position: relative;
+      z-index: 1;
+    }
+    .label-stack.dual {
+      display: inline-grid;
+    }
+    .label-stack span {
+      display: block;
+      min-height: 1.15em;
+    }
+    .link-btn.hover-lift:hover,
+    .link-btn.hover-lift-scroll:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 34px rgba(0,0,0,.22);
+    }
+    .link-btn.hover-scroll-text:hover .label-stack.dual,
+    .link-btn.hover-lift-scroll:hover .label-stack.dual {
+      transform: translateY(-1.15em);
+    }
+    .link-btn.shadow-strong {
+      box-shadow: 0 22px 34px rgba(0,0,0,.22);
+    }
+    .link-btn.shadow-glow {
+      box-shadow: 0 0 0 rgba(0,0,0,0), 0 0 28px rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.22);
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="logo"><img src="assets/logo.png" alt="Alumni Network of Grand Rapids" /></div>
+    <h1>Alumni Network of Grand Rapids</h1>
+    <p>ΣΛΒ</p>
+    <section class="socials">
+      <a class="social-link" href="https://www.instagram.com/slb.gr" target="_blank" rel="noopener noreferrer" aria-label="instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5Zm5.25-3.4a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15Z"/></svg></a>
+      <a class="social-link" href="https://slbgr.com/" target="_blank" rel="noopener noreferrer" aria-label="website"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm6.93 9h-3.05a15.8 15.8 0 0 0-1.38-5A8.03 8.03 0 0 1 18.93 11ZM12 4.07c.9 1.1 1.76 3.05 2.07 5.93H9.93C10.24 7.12 11.1 5.17 12 4.07ZM4.98 13h3.14a15.8 15.8 0 0 0 1.38 5A8.03 8.03 0 0 1 4.98 13Zm3.14-2H4.98a8.03 8.03 0 0 1 4.52-5 15.8 15.8 0 0 0-1.38 5Zm3.88 8.93c-.9-1.1-1.76-3.05-2.07-5.93h4.14c-.31 2.88-1.17 4.83-2.07 5.93ZM14.5 18a15.8 15.8 0 0 0 1.38-5h3.05a8.03 8.03 0 0 1-4.43 5Z"/></svg></a>
+    </section>
+    <section class="links">
+      <a class="link-btn hover-lift shadow-strong" href="https://slbgr.com/#:~:text=About%20Us" target="_blank" rel="noopener noreferrer"><span class="label-stack">About</span></a>
+      <a class="link-btn hover-lift shadow-strong" href="https://slbgr.com/#:~:text=Upcoming%20Events" target="_blank" rel="noopener noreferrer"><span class="label-stack">Events</span></a>
+      <a class="link-btn hover-lift shadow-strong" href="https://slbgr.com/#:~:text=Member%20Contact" target="_blank" rel="noopener noreferrer"><span class="label-stack">Contact</span></a>
+    </section>
+  </main>
+</body>
+</html>
